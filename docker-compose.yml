@@ -1,0 +1,17 @@
+version: '3'
+services:
+  app:
+    build: ./
+    ports:
+      - 2003:2003
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432

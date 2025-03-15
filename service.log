@@ -1,0 +1,834 @@
+2024-11-21T18:59:37.831+0600	ERROR	app/app.go:29	ERR_INIT_CONFIGS	{"error": "required key APP_MODE missing value"}
+account-service/internal/app.Run
+	C:/damir/account-service/internal/app/app.go:29
+main.main
+	C:/damir/account-service/main.go:18
+runtime.main
+	C:/Program Files/Go/src/runtime/proc.go:271
+2024-11-21T19:00:19.693+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-11-21T19:03:32.825+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2024-11-21T19:29:14.929+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-11-21T19:29:37.245+0600	ERROR	SignUp	auth/auth.go:30	failed to create user	{"error": "pq: INSERT has more target columns than expressions"}
+account-service/internal/service/auth.(*Service).SignUp
+	C:/damir/account-service/internal/service/auth/auth.go:30
+account-service/internal/handler/http.(*Auth).signUp
+	C:/damir/account-service/internal/handler/http/auth.go:53
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/766b/chi-prometheus.Middleware.handler-fm.Middleware.handler.func1
+	C:/Users/BG/go/pkg/mod/github.com/766b/chi-prometheus@v0.0.0-20211217152057-87afa9aa2ca8/middleware.go:64
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.Timeout.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/timeout.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.SetContentType.func3.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/render@v1.0.3/content_type.go:52
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.Timeout.func2.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/timeout.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.Heartbeat.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/heartbeat.go:21
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.CleanPath.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/clean_path.go:26
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.Recoverer.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/recoverer.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.init.0.RequestLogger.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/logger.go:54
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.RealIP.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/realip.go:36
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.RequestID.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/request_id.go:76
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:90
+net/http.serverHandler.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:3137
+net/http.(*conn).serve
+	C:/Program Files/Go/src/net/http/server.go:2039
+2024-11-21T19:30:02.454+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2024-11-21T19:30:10.880+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-11-21T19:32:02.637+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-11-21T19:34:39.851+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2024-11-21T19:34:48.817+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-11-21T19:35:37.584+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2024-11-21T19:36:00.288+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-11-21T19:36:24.384+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2024-11-21T20:20:28.750+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-11-21T20:20:46.026+0600	ERROR	GetDependencies	auth/dependencies.go:15	failed to get dependencies	{"error": "sql: no rows in result set"}
+account-service/internal/service/auth.(*Service).GetDependencies
+	C:/damir/account-service/internal/service/auth/dependencies.go:15
+account-service/internal/handler/http.(*Auth).getDependencies
+	C:/damir/account-service/internal/handler/http/auth.go:90
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/766b/chi-prometheus.Middleware.handler-fm.Middleware.handler.func1
+	C:/Users/BG/go/pkg/mod/github.com/766b/chi-prometheus@v0.0.0-20211217152057-87afa9aa2ca8/middleware.go:64
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.Timeout.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/timeout.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.SetContentType.func3.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/render@v1.0.3/content_type.go:52
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.Timeout.func2.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/timeout.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.Heartbeat.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/heartbeat.go:21
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.CleanPath.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/clean_path.go:26
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.Recoverer.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/recoverer.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.init.0.RequestLogger.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/logger.go:54
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.RealIP.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/realip.go:36
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.RequestID.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/request_id.go:76
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:90
+net/http.serverHandler.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:3137
+net/http.(*conn).serve
+	C:/Program Files/Go/src/net/http/server.go:2039
+2024-11-21T20:22:04.925+0600	ERROR	GetDependencies	auth/dependencies.go:15	failed to get dependencies	{"error": "sql: expected 2 destination arguments in Scan, not 1"}
+account-service/internal/service/auth.(*Service).GetDependencies
+	C:/damir/account-service/internal/service/auth/dependencies.go:15
+account-service/internal/handler/http.(*Auth).getDependencies
+	C:/damir/account-service/internal/handler/http/auth.go:90
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/766b/chi-prometheus.Middleware.handler-fm.Middleware.handler.func1
+	C:/Users/BG/go/pkg/mod/github.com/766b/chi-prometheus@v0.0.0-20211217152057-87afa9aa2ca8/middleware.go:64
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.Timeout.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/timeout.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.SetContentType.func3.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/render@v1.0.3/content_type.go:52
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.Timeout.func2.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/timeout.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.Heartbeat.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/heartbeat.go:21
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.CleanPath.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/clean_path.go:26
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.Recoverer.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/recoverer.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.init.0.RequestLogger.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/logger.go:54
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.RealIP.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/realip.go:36
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.RequestID.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/request_id.go:76
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:90
+net/http.serverHandler.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:3137
+net/http.(*conn).serve
+	C:/Program Files/Go/src/net/http/server.go:2039
+2024-11-21T20:22:35.610+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2024-11-21T20:22:44.493+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-11-21T20:22:57.610+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2024-11-21T20:24:03.038+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-11-21T20:24:15.066+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2024-11-21T20:45:48.682+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-11-21T20:47:12.875+0600	ERROR	CreateUserDependencies	auth/dependencies.go:40	failed to get dependencies	{"error": "missing destination name user_id in *users.Dependency"}
+account-service/internal/service/auth.(*Service).CreateUserDependencies
+	C:/damir/account-service/internal/service/auth/dependencies.go:40
+account-service/internal/handler/http.(*Auth).setDependencies
+	C:/damir/account-service/internal/handler/http/auth.go:113
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/766b/chi-prometheus.Middleware.handler-fm.Middleware.handler.func1
+	C:/Users/BG/go/pkg/mod/github.com/766b/chi-prometheus@v0.0.0-20211217152057-87afa9aa2ca8/middleware.go:64
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.Timeout.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/timeout.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.SetContentType.func3.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/render@v1.0.3/content_type.go:52
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.Timeout.func2.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/timeout.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.Heartbeat.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/heartbeat.go:21
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.CleanPath.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/clean_path.go:26
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.Recoverer.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/recoverer.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.init.0.RequestLogger.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/logger.go:54
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.RealIP.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/realip.go:36
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.RequestID.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/request_id.go:76
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:90
+net/http.serverHandler.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:3137
+net/http.(*conn).serve
+	C:/Program Files/Go/src/net/http/server.go:2039
+2024-11-21T20:47:32.385+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2024-11-21T20:47:50.745+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-11-21T20:48:06.776+0600	ERROR	CreateUserDependencies	auth/dependencies.go:40	failed to get dependencies	{"error": "missing destination name user_id in *users.Dependency"}
+account-service/internal/service/auth.(*Service).CreateUserDependencies
+	C:/damir/account-service/internal/service/auth/dependencies.go:40
+account-service/internal/handler/http.(*Auth).setDependencies
+	C:/damir/account-service/internal/handler/http/auth.go:113
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/766b/chi-prometheus.Middleware.handler-fm.Middleware.handler.func1
+	C:/Users/BG/go/pkg/mod/github.com/766b/chi-prometheus@v0.0.0-20211217152057-87afa9aa2ca8/middleware.go:64
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.Timeout.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/timeout.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.SetContentType.func3.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/render@v1.0.3/content_type.go:52
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.Timeout.func2.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/timeout.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.Heartbeat.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/heartbeat.go:21
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.CleanPath.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/clean_path.go:26
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.Recoverer.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/recoverer.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.init.0.RequestLogger.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/logger.go:54
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.RealIP.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/realip.go:36
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.RequestID.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/request_id.go:76
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:90
+net/http.serverHandler.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:3137
+net/http.(*conn).serve
+	C:/Program Files/Go/src/net/http/server.go:2039
+2024-11-21T20:49:25.025+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2024-11-21T20:49:34.236+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-11-21T20:50:09.627+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2024-11-21T20:57:50.158+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-11-21T20:57:58.386+0600	ERROR	CreateUserDependencies	auth/dependencies.go:45	failed to create dependency	{"error": "pq: insert or update on table \"user_dependencies\" violates foreign key constraint \"user_dependencies_user_id_fkey\""}
+account-service/internal/service/auth.(*Service).CreateUserDependencies
+	C:/damir/account-service/internal/service/auth/dependencies.go:45
+account-service/internal/handler/http.(*Auth).setDependencies
+	C:/damir/account-service/internal/handler/http/auth.go:127
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/766b/chi-prometheus.Middleware.handler-fm.Middleware.handler.func1
+	C:/Users/BG/go/pkg/mod/github.com/766b/chi-prometheus@v0.0.0-20211217152057-87afa9aa2ca8/middleware.go:64
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.Timeout.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/timeout.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.SetContentType.func3.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/render@v1.0.3/content_type.go:52
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.Timeout.func2.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/timeout.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.Heartbeat.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/heartbeat.go:21
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.CleanPath.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/clean_path.go:26
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.Recoverer.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/recoverer.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.init.0.RequestLogger.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/logger.go:54
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.RealIP.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/realip.go:36
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.RequestID.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/request_id.go:76
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:90
+net/http.serverHandler.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:3137
+net/http.(*conn).serve
+	C:/Program Files/Go/src/net/http/server.go:2039
+2024-11-21T20:58:17.719+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2024-11-21T20:58:26.460+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-11-21T21:01:07.925+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2024-11-21T21:01:16.340+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-11-21T21:01:39.413+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2024-12-01T20:26:33.982+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-12-01T20:27:59.472+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-12-01T20:30:02.597+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2024-12-01T20:32:11.296+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-12-01T20:33:12.201+0600	ERROR	GetUserSaving	auth/saving.go:42	failed to get user savings	{"error": "sql: no rows in result set"}
+account-service/internal/service/auth.(*Service).GetUserSaving
+	C:/damir/account-service/internal/service/auth/saving.go:42
+account-service/internal/handler/http.(*User).GetUserSaving
+	C:/damir/account-service/internal/handler/http/users.go:38
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.Timeout.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/timeout.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/cors.(*Cors).Handler-fm.(*Cors).Handler.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/cors@v1.2.1/cors.go:228
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.SetContentType.func2.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/render@v1.0.3/content_type.go:52
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.Timeout.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/timeout.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.CleanPath.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/clean_path.go:26
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.Recoverer.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/recoverer.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.init.0.RequestLogger.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/logger.go:54
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.RealIP.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/realip.go:36
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.RequestID.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/request_id.go:76
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:90
+net/http.serverHandler.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:3137
+net/http.(*conn).serve
+	C:/Program Files/Go/src/net/http/server.go:2039
+2024-12-01T20:33:41.420+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2024-12-01T20:34:13.161+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-12-01T20:34:16.833+0600	ERROR	GetUserSaving	auth/saving.go:42	failed to get user savings	{"error": "sql: no rows in result set"}
+account-service/internal/service/auth.(*Service).GetUserSaving
+	C:/damir/account-service/internal/service/auth/saving.go:42
+account-service/internal/handler/http.(*User).GetUserSaving
+	C:/damir/account-service/internal/handler/http/users.go:40
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.Timeout.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/timeout.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/cors.(*Cors).Handler-fm.(*Cors).Handler.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/cors@v1.2.1/cors.go:228
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.SetContentType.func2.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/render@v1.0.3/content_type.go:52
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.Timeout.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/timeout.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.CleanPath.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/clean_path.go:26
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.Recoverer.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/recoverer.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.init.0.RequestLogger.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/logger.go:54
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.RealIP.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/realip.go:36
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.RequestID.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/request_id.go:76
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:90
+net/http.serverHandler.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:3137
+net/http.(*conn).serve
+	C:/Program Files/Go/src/net/http/server.go:2039
+2024-12-01T20:34:24.307+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2024-12-01T20:34:35.960+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-12-01T20:37:10.589+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2024-12-01T20:37:22.735+0600	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2024-12-01T20:37:39.336+0600	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2025-01-25T22:00:05.764+0500	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2025-01-25T22:22:48.912+0500	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2025-01-25T22:23:24.593+0500	ERROR	GetUsers	auth/saving.go:65	failed to get user savings	{"error": "sql: no rows in result set"}
+account-service/internal/service/auth.(*Service).GetUsers
+	C:/damir/account-service/internal/service/auth/saving.go:65
+account-service/internal/handler/http.(*User).GetUsers
+	C:/damir/account-service/internal/handler/http/users.go:78
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:73
+github.com/go-chi/chi/v5.(*Mux).Mount.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:316
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).routeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:444
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.Timeout.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/timeout.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/cors.(*Cors).Handler-fm.(*Cors).Handler.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/cors@v1.2.1/cors.go:228
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.SetContentType.func2.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/render@v1.0.3/content_type.go:52
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+account-service/pkg/server/router.New.Timeout.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/timeout.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.CleanPath.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/clean_path.go:26
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.Recoverer.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/recoverer.go:45
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.init.0.RequestLogger.func1.1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/logger.go:54
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.RealIP.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/realip.go:36
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5/middleware.RequestID.func1
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/middleware/request_id.go:76
+net/http.HandlerFunc.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:2166
+github.com/go-chi/chi/v5.(*Mux).ServeHTTP
+	C:/Users/BG/go/pkg/mod/github.com/go-chi/chi/v5@v5.0.10/mux.go:90
+net/http.serverHandler.ServeHTTP
+	C:/Program Files/Go/src/net/http/server.go:3137
+net/http.(*conn).serve
+	C:/Program Files/Go/src/net/http/server.go:2039
+2025-01-25T22:24:14.398+0500	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2025-01-25T22:24:23.466+0500	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2025-01-25T22:25:15.039+0500	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2025-01-27T22:05:28.436+0500	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2025-03-15T17:05:50.949+0500	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2025-03-15T17:06:21.112+0500	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
+2025-03-15T17:06:54.252+0500	INFO	app/app.go:78	Server started on http://localhost:2003/swagger/index.html
+2025-03-15T17:07:04.043+0500	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/damir/account-service/pkg/server/server.go:42
