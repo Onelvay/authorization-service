@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Статус оплаты</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&amp;display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        * {
+            font-family: 'Noto Sans', sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+
+        body {
+            background: #f7f7f7;
+        }
+
+        .checkbox-zoom {
+            --animate-duration: 0.2s;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app" class="max-w-[500px] w-full mx-auto overflow-hidden bg-[#f7f7f7]">
+    <div>
+        <div class="bg-white fixed top-0 left-[50%] translate-x-[-50%] max-w-[500px] w-full z-[1]">
+            <p class="font-semibold text-center py-[12px]">Статус оплаты</p>
+            <hr> </div>
+        <div class="rounded-t-[24px] p-4 pt-5 mt-11">
+            <div :class="{ 'bg-[#2AA65C]' : '{{ .Status.Transaction.Status }}' === 'success', 'bg-[#BFBFBF]' : '{{ .Status.Transaction.Status }}' === 'cancel', 'bg-[#FD2D39]' : '{{ .Status.Transaction.Status }}' === 'failed', 'bg-[#FCB016]' : '{{ .Status.Transaction.Status }}' === 'pending'}" class="p-4 rounded-[12px] text-white mb-4">
+                <div class="flex items-center justify-center text-center p-4">
+                    <svg v-if="'{{ .Status.Transaction.Status }}' === 'cancel'" width="81" height="81" viewBox="0 0 81 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M40.5903 0.132812C18.4989 0.132813 0.590332 18.0414 0.590332 40.1328C0.590333 62.2242 18.4989 80.1328 40.5903 80.1328C62.6817 80.1328 80.5903 62.2242 80.5903 40.1328C80.5903 18.0414 62.6817 0.132812 40.5903 0.132812ZM40.5903 60.1328C38.3812 60.1328 36.5903 58.342 36.5903 56.1328C36.5903 53.9237 38.3812 52.1328 40.5903 52.1328C42.7995 52.1328 44.5903 53.9237 44.5903 56.1328C44.5903 58.342 42.7995 60.1328 40.5903 60.1328ZM44.5903 44.1328C44.5903 46.342 42.7995 48.1328 40.5903 48.1328C38.3812 48.1328 36.5903 46.342 36.5903 44.1328V24.1328C36.5903 21.9237 38.3812 20.1328 40.5903 20.1328C42.7995 20.1328 44.5903 21.9237 44.5903 24.1328V44.1328Z" fill="white" /> </svg>
+                    <svg v-if="'{{ .Status.Transaction.Status }}' === 'failed'" width="81" height="81" viewBox="0 0 81 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M80.5908 40.1328C80.5908 62.2242 62.6822 80.1328 40.5908 80.1328C18.4994 80.1328 0.59082 62.2242 0.59082 40.1328C0.59082 18.0414 18.4994 0.132812 40.5908 0.132812C62.6822 0.132812 80.5908 18.0414 80.5908 40.1328ZM55.5548 25.1672C56.6706 26.283 56.6706 28.092 55.5548 29.2078L44.6306 40.132L55.5548 51.0562C56.6706 52.172 56.6706 53.981 55.5548 55.0968C54.439 56.2126 52.63 56.2126 51.5142 55.0968L40.59 44.1726L29.6658 55.0968C28.55 56.2126 26.741 56.2126 25.6252 55.0968C24.5094 53.981 24.5094 52.172 25.6252 51.0562L36.5494 40.132L25.6252 29.2078C24.5094 28.092 24.5094 26.283 25.6252 25.1672C26.741 24.0514 28.55 24.0514 29.6658 25.1672L40.59 36.0914L51.5142 25.1672C52.63 24.0514 54.439 24.0514 55.5548 25.1672Z" fill="white" /> </svg>
+                    <svg v-if="'{{ .Status.Transaction.Status }}' === 'pending'" width="81" height="81" viewBox="0 0 81 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="40.5898" cy="40.1328" r="40" fill="white" />
+                        <path d="M48.1312 21.6034C45.8039 20.6552 43.2579 20.1328 40.5898 20.1328C29.5441 20.1328 20.5898 29.0871 20.5898 40.1328C20.5898 51.1785 29.5441 60.1328 40.5898 60.1328C51.6355 60.1328 60.5898 51.1785 60.5898 40.1328C60.5898 38.9285 60.4834 37.7491 60.2794 36.6034" stroke="#FCB016" stroke-width="5.71429" stroke-linecap="round" stroke-linejoin="round" /> </svg>
+                    <svg v-if="'{{ .Status.Transaction.Status }}' === 'success'" width="81" height="81" viewBox="0 0 81 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M53.4106 8.63281C49.4543 7.02095 45.126 6.13281 40.5903 6.13281C21.8127 6.13281 6.59033 21.3551 6.59033 40.1328C6.59033 58.9105 21.8127 74.1328 40.5903 74.1328C59.368 74.1328 74.5903 58.9105 74.5903 40.1328C74.5903 38.0855 74.4094 36.0805 74.0626 34.1328" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M75.5903 10.1328L37.876 48.1328L27.5903 37.7692" stroke="white" stroke-width="5" stroke-linecap="round" /> </svg>
+                </div>
+                <div class="text-center">
+                    <p>{{ .Status.Transaction.StatusTitle }}</p>
+                    <p class="text-[40px] font-bold">{{ .Status.Transaction.Amount }} ₸</p>
+                    <p v-if="'{{ .Status.Transaction.Status }}' === 'failed'">{{ .Status.Transaction.StatusDescription }}</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-[16px] px-4 mb-[20px]">
+                <div class="flex justify-between pt-[14px]">
+                    <p class="font-semibold"> {{ .Description }} </p>
+                </div>
+                <div class="flex items-center justify-between py-[14px]">
+                    <p class="text-[#99A3B3]">Номер платежа</p>
+                    <p>{{ .Status.Transaction.InvoiceID }}</p>
+                </div>
+                <hr>
+                <div class="flex items-center justify-between py-[14px]">
+                    <p class="text-[#99A3B3]">Дата платежа</p>
+                    <p>{{ .Status.Transaction.Datetime }}</p>
+                </div>
+                <hr>
+                <div class="flex items-center justify-between py-[14px]">
+                    <p class="text-[#99A3B3]">Референс платежа</p>
+                    <p>{{ .Status.Transaction.Reference }}</p>
+                </div>
+                <hr>
+                <div class="flex items-center justify-between py-[14px]">
+                    <p class="text-[#99A3B3]">Оплачено картой</p>
+                    <p>{{ .Status.Transaction.Issuer }}</p>
+                </div>
+                <hr>
+                <div class="flex items-center justify-between py-[14px]">
+                    <p class="text-[#99A3B3]">Маска карты</p>
+                    <p>{{ .Status.Transaction.CardType }} {{ .Status.Transaction.CardMask }}</p>
+                </div>
+                <hr>
+                <div class="flex items-center justify-between py-[14px]">
+                    <p class="text-[#99A3B3]">ИИН</p>
+                    <p>{{ .IIN }}</p>
+                </div>
+            </div>
+            <div class="flex items-center justify-center mb-[120px]">
+                <a class="px-1" href="https://apps.apple.com/kz/app/halyk-life/id1546698463" target="_blank">
+                    <img src="https://cdn.homebank.kz/assets/icons/others/app-store.svg" width="120" height="auto">
+                </a>
+                <a class="px-1" href="https://play.google.com/store/apps/details?id=com.halyk.life.app&hl=ru"
+                   target="_blank">
+                    <img src="https://cdn.homebank.kz/assets/icons/others/google-play.svg" width="120"
+                         height="auto">
+                </a>
+            </div>
+            <div class="bg-[#f7f7f7] fixed bottom-0 left-[50%] translate-x-[-50%] max-w-[500px] w-full px-4 pb-4">
+                <a v-if="'{{ .Status.Transaction.StatusName }}' === 'CHARGE'" href="{{ .ReceiptLink }}">
+                    <button class="rounded-[14px] bg-[#2AA65C] w-full py-[12px] mb-2 mt-4">
+                        <div class="text-center">
+                            <div role="status" class="font-semibold text-white">Скачать квитанцию</div>
+                        </div>
+                    </button>
+                </a>
+                <a href="{{ .BackLink }}">
+                    <button class="rounded-[14px] bg-[#2AA65C] bg-opacity-25 w-full py-[12px]">
+                        <div class="text-center">
+                            <div role="status" class="font-semibold text-[#2AA65C]">Закрыть</div>
+                        </div>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const {
+        createApp,
+        ref,
+        watch,
+        reactive
+    } = Vue;
+    createApp({
+        setup() {
+            return {};
+        },
+    }).mount('#app');
+</script>
+</body>
+
+</html>
