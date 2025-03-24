@@ -29,7 +29,23 @@ func (h *Auth) Routes() chi.Router {
 	r.Post("/sign-up", h.signUp)
 	r.Post("/sign-in", h.signIn)
 
+	r.Get("/pay", h.pay)
+
 	return r
+}
+
+func (h *Auth) pay(w http.ResponseWriter, r *http.Request) {
+
+	err := h.authService.Pay(r.Context(), w)
+	switch {
+	case errors.Is(err, grant.ErrUserExist):
+		response.BadRequest(w, r, err, nil)
+	case errors.Is(err, nil):
+		response.OK(w, r, "")
+	default:
+		response.InternalServerError(w, r, err)
+	}
+	return
 }
 
 func (h *Auth) signUp(w http.ResponseWriter, r *http.Request) {

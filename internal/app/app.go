@@ -1,6 +1,7 @@
 package app
 
 import (
+	"account-service/internal/provider/epay"
 	"context"
 	"flag"
 	"fmt"
@@ -30,6 +31,14 @@ func Run() {
 		return
 	}
 
+	epayClient := epay.New(configs, epay.Credentials{
+		Username: "test",
+		Password: "yF587AV9Ms94qN2QShFzVR3vFnWkhjbAK3sG",
+		Endpoint: "https://testepay.homebank.kz/api",
+		OAuth:    "https://testoauth.homebank.kz/epay2",
+		JS:       "https://test-epay.homebank.kz/payform/payment-api.js",
+	})
+
 	// Init repositories
 	repositories, err := repository.New(
 		repository.WithPostgresStore(configs.POSTGRES.DSN))
@@ -41,6 +50,7 @@ func Run() {
 
 	authService, err := auth.New(
 		auth.WithUserRepository(repositories.User),
+		auth.WithEpay(epayClient),
 	)
 	if err != nil {
 		logger.Error("ERR_INIT_AUTH_SERVICE", zap.Error(err))
