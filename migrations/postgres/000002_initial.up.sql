@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS billings (
     language            VARCHAR NULL,
     data                VARCHAR NULL,
     card_save           BOOLEAN DEFAULT FALSE,
-    source              VARCHAR DEFAULT 'epay',
+    source              VARCHAR DEFAULT 'epay'
 );
 
 CREATE TABLE IF NOT EXISTS cards(

@@ -1,6 +1,7 @@
 package http
 
 import (
+	"account-service/internal/domain/billing"
 	"account-service/internal/domain/grant"
 	"database/sql"
 	"encoding/json"
@@ -30,13 +31,34 @@ func (h *Auth) Routes() chi.Router {
 	r.Post("/sign-in", h.signIn)
 
 	r.Get("/pay", h.pay)
+	r.Post("/createPayment", h.createBilling)
 
 	return r
 }
 
-func (h *Auth) pay(w http.ResponseWriter, r *http.Request) {
+func (h *Auth) createBilling(w http.ResponseWriter, r *http.Request) {
+	req := billing.Entity{}
+	err := json.NewDecoder(r.Body).Decode(&req)
+	if err != nil {
+		response.BadRequest(w, r, err, nil)
+		return
+	}
 
-	err := h.authService.Pay(r.Context(), w)
+	id, err := h.authService.CreatePayment(r.Context(), req)
+	switch {
+	case errors.Is(err, grant.ErrUserExist):
+		response.BadRequest(w, r, err, nil)
+	case errors.Is(err, nil):
+		response.OK(w, r, response.Object{Success: true, Data: id})
+	default:
+		response.InternalServerError(w, r, err)
+	}
+	return
+}
+
+func (h *Auth) pay(w http.ResponseWriter, r *http.Request) {
+	id := r.URL.Query().Get("id")
+	err := h.authService.Pay(r.Context(), w, id)
 	switch {
 	case errors.Is(err, grant.ErrUserExist):
 		response.BadRequest(w, r, err, nil)

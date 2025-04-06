@@ -4,6 +4,7 @@ import (
 	"context"
 	"time"
 
+	"account-service/internal/domain/billing"
 	"account-service/internal/domain/users"
 	"github.com/jmoiron/sqlx"
 )
@@ -68,4 +69,54 @@ func (r *Repository) GetUserByAny(ctx context.Context, login string) (dest users
 
 	err = r.db.GetContext(ctx, &dest, query, args...)
 	return
+}
+
+func (r *Repository) CreateBilling(ctx context.Context, data billing.Entity) (id string, err error) {
+	ctx, cancel := context.WithTimeout(ctx, 10*time.Second)
+	defer cancel()
+
+	query := `
+		INSERT INTO billings (
+			iin, correlation_id, invoice_id, amount, currency,
+			terminal_id, description, account_id, name, email,
+			phone, back_link, failure_back_link, post_link, failure_post_link,
+			language, data, card_save, source
+		) VALUES (
+			$1, $2, $3, $4, $5,
+			$6, $7, $8, $9, $10,
+			$11, $12, $13, $14, $15,
+			$16, $17, $18, $19
+		)
+		RETURNING id;
+	`
+
+	args := []interface{}{
+		data.IIN, data.CorrelationID, data.InvoiceID, data.Amount, data.Currency,
+		data.TerminalID, data.Description, data.AccountID, data.Name, data.Email,
+		data.Phone, data.BackLink, data.FailureBackLink, data.PostLink, data.FailurePostLink,
+		data.Language, data.Data, data.CardSave, data.Source,
+	}
+
+	err = r.db.QueryRowContext(ctx, query, args...).Scan(&id)
+	return
+}
+
+func (r *Repository) GetBillingByID(ctx context.Context, id string) (billing.Entity, error) {
+	var b billing.Entity
+
+	query := `
+		SELECT 
+			id, correlation_id, invoice_id, iin, phone, source,
+			amount, currency, terminal_id, description, account_id,
+			name, email, data, back_link, failure_back_link,
+			post_link, failure_post_link, language, card_save
+		FROM billings
+		WHERE id = $1
+	`
+
+	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
+	defer cancel()
+
+	err := r.db.GetContext(ctx, &b, query, id)
+	return b, err
 }

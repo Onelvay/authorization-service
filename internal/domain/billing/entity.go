@@ -1,5 +1,7 @@
 package billing
 
+import "account-service/internal/provider/epay"
+
 type Entity struct {
 	ID              string  `db:"id" json:"id"`
 	CorrelationID   string  `db:"correlation_id" json:"correlationId"`
@@ -13,10 +15,31 @@ type Entity struct {
 	Description     string  `db:"description" json:"description"`
 	AccountID       string  `db:"account_id" json:"accountId"`
 	Name            string  `db:"name" json:"name"`
+	Email           string  `db:"email" json:"email"`
+	Data            string  `db:"data" json:"data"`
 	BackLink        string  `db:"back_link" json:"backLink"`
 	FailureBackLink string  `db:"failure_back_link" json:"failureBackLink"`
 	PostLink        string  `db:"post_link" json:"post_link"`
 	FailurePostLink string  `db:"failure_post_link" json:"failurePostLink"`
 	Language        string  `db:"language" json:"language"`
 	CardSave        bool    `db:"card_save" json:"cardSave"`
+}
+
+func ParseToEpayRequest(b Entity) epay.Request {
+	return epay.Request{
+		ID:            b.ID,
+		IIN:           b.IIN,
+		CorrelationID: b.CorrelationID,
+		InvoiceID:     *b.InvoiceID,
+		Amount:        b.Amount,
+		Currency:      b.Currency,
+		TerminalID:    b.TerminalID,
+		Description:   b.Description,
+		AccountID:     b.AccountID,
+		Name:          b.Name,
+		Email:         b.Email,
+		Phone:         b.Phone,
+		Language:      b.Language,
+		PostLink:      b.PostLink,
+	}
 }
