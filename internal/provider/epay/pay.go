@@ -6,6 +6,8 @@ import (
 	"errors"
 	"html/template"
 	"net/http"
+	"os"
+	"path/filepath"
 	"time"
 
 	"github.com/shopspring/decimal"
@@ -140,31 +142,27 @@ type ResponseCardID struct {
 }
 
 func (c *Client) PayByTemplate(w http.ResponseWriter, requestSrc Request) (err error) {
-	//rootDir, err := os.Getwd()
-	//if err != nil {
-	//	return
-	//}
+	rootDir, err := os.Getwd()
+	if err != nil {
+		return
+	}
 
 	filenames := ""
 	switch requestSrc.Status.Transaction.StatusName {
 	case "NEW", "AUTH", "EXPIRED":
 		requestSrc.Status.Transaction.Status = "pending"
-		filenames = "templates/status.html"
-		//filenames = filepath.Join(rootDir, "templates", "status.html")
+		filenames = filepath.Join(rootDir, "internal", "provider", "epay", "templates", "payment.html")
 	case "CHARGE":
 		requestSrc.Status.Transaction.Status = "success"
-		filenames = "templates/status.html"
-		//filenames = filepath.Join(rootDir, "templates", "status.html")
+		filenames = filepath.Join(rootDir, "internal", "provider", "epay", "templates", "payment.html")
 	case "CANCEL", "CANCEL_OLD", "REFUND":
 		requestSrc.Status.Transaction.Status = "cancel"
-		filenames = "templates/status.html"
-		//filenames = filepath.Join(rootDir, "templates", "status.html")
+		filenames = filepath.Join(rootDir, "internal", "provider", "epay", "templates", "payment.html")
 	case "REJECT", "FAILED", "3D":
 		requestSrc.Status.Transaction.Status = "failed"
-		//filenames = filepath.Join(rootDir, "templates", "status.html")
-		filenames = "templates/status.html"
+		filenames = filepath.Join(rootDir, "internal", "provider", "epay", "templates", "payment.html")
 	case "":
-		filenames = "templates/payment.html"
+		filenames = filepath.Join(rootDir, "internal", "provider", "epay", "templates", "payment.html")
 		token, err := c.getToken(requestSrc)
 		if err != nil {
 			return err
@@ -177,8 +175,7 @@ func (c *Client) PayByTemplate(w http.ResponseWriter, requestSrc Request) (err e
 
 	default:
 		requestSrc.Status.Transaction.Status = "failed"
-		filenames = "templates/status.html"
-		//filenames = filepath.Join(rootDir, "templates", "status.html")
+		filenames = filepath.Join(rootDir, "internal", "provider", "epay", "templates", "status.html")
 	}
 
 	requestSrc.Status.Transaction.Datetime = requestSrc.Status.Transaction.CreatedDate.Format(time.DateTime)
