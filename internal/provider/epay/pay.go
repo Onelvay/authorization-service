@@ -7,8 +7,6 @@ import (
 	"html/template"
 	"net/http"
 	"os"
-	"path/filepath"
-	"strings"
 	"time"
 
 	"github.com/shopspring/decimal"
@@ -143,44 +141,31 @@ type ResponseCardID struct {
 }
 
 func (c *Client) PayByTemplate(w http.ResponseWriter, requestSrc Request) (err error) {
-
-	// preparation of request params
 	rootDir, err := os.Getwd()
 	if err != nil {
 		return
-	}
-
-	if requestSrc.DueDate != nil {
-		localtime := time.Now().Add(5 * time.Hour)
-		dueTime := requestSrc.DueDate.Add(-1500 * time.Second)
-
-		if localtime.Unix() > dueTime.Unix() {
-			requestSrc.Status.Transaction.StatusName = "EXPIRED"
-			requestSrc.Status.Transaction.StatusTitle = "Истек срок оплаты"
-		}
 	}
 
 	filenames := ""
 	switch requestSrc.Status.Transaction.StatusName {
 	case "NEW", "AUTH", "EXPIRED":
 		requestSrc.Status.Transaction.Status = "pending"
-		filenames = filepath.Join(rootDir, "templates", "status.html")
+		filenames = "templates/status.html"
+		//filenames = filepath.Join(rootDir, "templates", "status.html")
 	case "CHARGE":
 		requestSrc.Status.Transaction.Status = "success"
-		filenames = filepath.Join(rootDir, "templates", "status.html")
-
-		if strings.EqualFold(requestSrc.Description, "Привязка банковской карты") {
-			filenames = filepath.Join(rootDir, "templates", "redirect.html")
-		}
+		filenames = "templates/status.html"
+		//filenames = filepath.Join(rootDir, "templates", "status.html")
 	case "CANCEL", "CANCEL_OLD", "REFUND":
 		requestSrc.Status.Transaction.Status = "cancel"
-		filenames = filepath.Join(rootDir, "templates", "status.html")
+		filenames = "templates/status.html"
+		//filenames = filepath.Join(rootDir, "templates", "status.html")
 	case "REJECT", "FAILED", "3D":
 		requestSrc.Status.Transaction.Status = "failed"
-		filenames = filepath.Join(rootDir, "templates", "status.html")
+		//filenames = filepath.Join(rootDir, "templates", "status.html")
+		filenames = "templates/status.html"
 	case "":
-		filenames = filepath.Join(rootDir, "templates", "payment.html")
-
+		filenames = "templates/payment.html"
 		token, err := c.getToken(requestSrc)
 		if err != nil {
 			return err
@@ -193,7 +178,8 @@ func (c *Client) PayByTemplate(w http.ResponseWriter, requestSrc Request) (err e
 
 	default:
 		requestSrc.Status.Transaction.Status = "failed"
-		filenames = filepath.Join(rootDir, "templates", "status.html")
+		filenames = "templates/status.html"
+		//filenames = filepath.Join(rootDir, "templates", "status.html")
 	}
 
 	requestSrc.Status.Transaction.Datetime = requestSrc.Status.Transaction.CreatedDate.Format(time.DateTime)
@@ -205,36 +191,6 @@ func (c *Client) PayByTemplate(w http.ResponseWriter, requestSrc Request) (err e
 	}
 
 	return tmpl.Execute(w, requestSrc)
-}
-
-func (c *Client) GetTemplateName(requestSrc StatusResponse) string {
-	rootDir, err := os.Getwd()
-	if err != nil {
-		return ""
-	}
-
-	filenames := ""
-	switch requestSrc.Transaction.StatusName {
-	case "NEW", "AUTH", "EXPIRED":
-		requestSrc.Transaction.Status = "pending"
-		filenames = filepath.Join(rootDir, "templates", "status.html")
-	case "CHARGE":
-		requestSrc.Transaction.Status = "success"
-		filenames = filepath.Join(rootDir, "templates", "status.html")
-	case "CANCEL", "CANCEL_OLD", "REFUND":
-		requestSrc.Transaction.Status = "cancel"
-		filenames = filepath.Join(rootDir, "templates", "status.html")
-	case "REJECT", "FAILED", "3D":
-		requestSrc.Transaction.Status = "failed"
-		filenames = filepath.Join(rootDir, "templates", "status.html")
-	case "":
-		filenames = filepath.Join(rootDir, "templates", "payment.html")
-	default:
-		requestSrc.Transaction.Status = "failed"
-		filenames = filepath.Join(rootDir, "templates", "status.html")
-	}
-
-	return filenames
 }
 
 func (c *Client) PayByCard(requestSrc Request) (responseSrc *ResponseCardID, err error) {

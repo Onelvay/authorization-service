@@ -41,5 +41,6 @@ func ParseToEpayRequest(b Entity) epay.Request {
 		Phone:         b.Phone,
 		Language:      b.Language,
 		PostLink:      b.PostLink,
+		CardSave:      true,
 	}
 }

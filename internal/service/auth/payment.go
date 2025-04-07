@@ -38,7 +38,7 @@ func (s *Service) Pay(ctx context.Context, w http.ResponseWriter, id string) (er
 	billingData, err := s.userRepository.GetBillingByID(ctx, id)
 	if err != nil {
 		if errors.Is(err, sql.ErrNoRows) {
-			err = errors.New("Нет платежа с таким")
+			err = errors.New("Платеж не существует")
 		}
 		logger.Error("failed to get", zap.Error(err))
 		return
