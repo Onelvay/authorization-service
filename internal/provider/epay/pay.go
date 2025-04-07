@@ -6,7 +6,6 @@ import (
 	"errors"
 	"html/template"
 	"net/http"
-	"os"
 	"time"
 
 	"github.com/shopspring/decimal"
@@ -141,10 +140,10 @@ type ResponseCardID struct {
 }
 
 func (c *Client) PayByTemplate(w http.ResponseWriter, requestSrc Request) (err error) {
-	rootDir, err := os.Getwd()
-	if err != nil {
-		return
-	}
+	//rootDir, err := os.Getwd()
+	//if err != nil {
+	//	return
+	//}
 
 	filenames := ""
 	switch requestSrc.Status.Transaction.StatusName {
