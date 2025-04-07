@@ -4,10 +4,11 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"html/template"
 	"net/http"
+	"os"
 	"path/filepath"
-	"runtime"
 	"time"
 
 	"github.com/shopspring/decimal"
@@ -142,25 +143,28 @@ type ResponseCardID struct {
 }
 
 func (c *Client) PayByTemplate(w http.ResponseWriter, requestSrc Request) (err error) {
-	_, filename, _, _ := runtime.Caller(0)
-	templateDir := filepath.Join(filepath.Dir(filename), "templates")
+	rootDir, err := os.Getwd()
+	if err != nil {
+		return
+	}
+	fmt.Print("rootDir", rootDir)
 
-	filenames := filepath.Join(templateDir, "payment.html")
+	filenames := ""
 	switch requestSrc.Status.Transaction.StatusName {
 	case "NEW", "AUTH", "EXPIRED":
 		requestSrc.Status.Transaction.Status = "pending"
-		//filenames = filepath.Join(rootDir, "internal", "provider", "epay", "templates", "payment.html")
+		filenames = filepath.Join(rootDir, "internal", "provider", "epay", "templates", "status.html")
 	case "CHARGE":
 		requestSrc.Status.Transaction.Status = "success"
-		//filenames = filepath.Join(rootDir, "internal", "provider", "epay", "templates", "payment.html")
+		filenames = filepath.Join(rootDir, "internal", "provider", "epay", "templates", "status.html")
 	case "CANCEL", "CANCEL_OLD", "REFUND":
 		requestSrc.Status.Transaction.Status = "cancel"
-		//filenames = filepath.Join(rootDir, "internal", "provider", "epay", "templates", "payment.html")
+		filenames = filepath.Join(rootDir, "internal", "provider", "epay", "templates", "status.html")
 	case "REJECT", "FAILED", "3D":
 		requestSrc.Status.Transaction.Status = "failed"
-		//filenames = filepath.Join(rootDir, "internal", "provider", "epay", "templates", "payment.html")
+		filenames = filepath.Join(rootDir, "internal", "provider", "epay", "templates", "status.html")
 	case "":
-		//filenames = filepath.Join(rootDir, "internal", "provider", "epay", "templates", "payment.html")
+		filenames = filepath.Join(rootDir, "internal", "provider", "epay", "templates", "payment.html")
 		token, err := c.getToken(requestSrc)
 		if err != nil {
 			return err
@@ -173,7 +177,7 @@ func (c *Client) PayByTemplate(w http.ResponseWriter, requestSrc Request) (err e
 
 	default:
 		requestSrc.Status.Transaction.Status = "failed"
-		//filenames = filepath.Join(rootDir, "internal", "provider", "epay", "templates", "status.html")
+		filenames = filepath.Join(rootDir, "internal", "provider", "epay", "templates", "status.html")
 	}
 
 	requestSrc.Status.Transaction.Datetime = requestSrc.Status.Transaction.CreatedDate.Format(time.DateTime)
