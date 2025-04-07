@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="diploma_project_it30@dpg-cvamndaj1k6c738ujf2g-a.oregon-postgres.render.com" uuid="797944bb-4db6-4a3d-ab3b-5a133e40e38b">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://dpg-cvamndaj1k6c738ujf2g-a.oregon-postgres.render.com:5432/diploma_project_it30</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>

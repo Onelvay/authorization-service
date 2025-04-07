@@ -156,7 +156,7 @@ func (c *Client) PayByTemplate(w http.ResponseWriter, requestSrc Request) (err e
 		filenames = "success.html"
 		requestSrc.Status.Transaction.Status = "failed"
 	case "":
-		filenames = "payment.html"
+		filenames = "./templates/payment.html"
 		token, err := c.getToken(requestSrc)
 		if err != nil {
 			return err

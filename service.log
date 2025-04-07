@@ -1449,3 +1449,7 @@ account-service/pkg/server.(*Server).Run.func1
 2025-04-07T23:51:55.599+0500	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
 account-service/pkg/server.(*Server).Run.func1
 	C:/diploma/authorization-service/pkg/server/server.go:42
+2025-04-08T00:00:09.732+0500	INFO	app/app.go:88	Server started on http://localhost:2003/swagger/index.html
+2025-04-08T00:00:27.083+0500	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/diploma/authorization-service/pkg/server/server.go:42
