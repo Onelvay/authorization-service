@@ -14,4 +14,5 @@ type Repository interface {
 	CreateBilling(ctx context.Context, data billing.Entity) (id string, err error)
 	GetBillingByID(ctx context.Context, id string) (billing.Entity, error)
 	CreateCard(ctx context.Context, data billing.CardEntity) (id string, err error)
+	GetCards(ctx context.Context, accID string) (dest []billing.CardEntity, err error)
 }

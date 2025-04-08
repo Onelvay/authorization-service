@@ -29,16 +29,16 @@ type Entity struct {
 }
 
 type CardEntity struct {
-	ID         string    `json:"id"`
-	CardID     string    `json:"card_id"`
-	AccountID  string    `json:"account_id"`
-	TerminalID string    `json:"terminal_id"`
-	Type       string    `json:"type"`
-	Mask       string    `json:"mask"`
-	Issuer     string    `json:"issuer"`
-	IsDefault  bool      `json:"is_default"`
-	CreatedAt  time.Time `json:"created_at"`
-	UpdatedAt  time.Time `json:"updated_at"`
+	ID         string    `json:"id" db:"id"`
+	CardID     string    `json:"card_id" db:"card_id"`
+	AccountID  string    `json:"account_id" db:"account_id"`
+	TerminalID string    `json:"terminal_id" db:"terminal_id"`
+	Type       string    `json:"type" db:"type"`
+	Mask       string    `json:"mask" db:"mask"`
+	Issuer     string    `json:"issuer" db:"issuer"`
+	IsDefault  bool      `json:"is_default" db:"is_default"`
+	CreatedAt  time.Time `json:"created_at" db:"created_at"`
+	UpdatedAt  time.Time `json:"updated_at" db:"updated_at"`
 }
 
 func ParseToEpayRequest(b Entity) epay.Request {

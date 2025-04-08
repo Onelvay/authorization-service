@@ -144,3 +144,17 @@ func (r *Repository) CreateCard(ctx context.Context, data billing.CardEntity) (i
 	err = r.db.QueryRowContext(ctx, query, args...).Scan(&id)
 	return
 }
+
+func (r *Repository) GetCards(ctx context.Context, accID string) (dest []billing.CardEntity, err error) {
+	ctx, cancel := context.WithTimeout(ctx, 10*time.Second)
+	defer cancel()
+
+	query := `
+			SELECT id, account_id, terminal_id, type, mask, 
+			issuer, is_default
+				FROM cards WHERE account_id = $1;`
+	args := []interface{}{accID}
+
+	err = r.db.SelectContext(ctx, &dest, query, args...)
+	return
+}
