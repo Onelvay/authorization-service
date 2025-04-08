@@ -13,6 +13,7 @@ ENV TZ=Asia/Qyzylorda
 COPY --from=builder /build/authorization-service ./authorization-service
 COPY --from=builder /build/.env ./.env
 COPY --from=builder /build/migrations/ ./migrations/
+COPY --from=builder /build/templates/ ./templates/
 
 # executable
 ENTRYPOINT [ "./authorization-service" ]
