@@ -89,16 +89,6 @@
                     <p>{{ .IIN }}</p>
                 </div>
             </div>
-            <div class="flex items-center justify-center mb-[120px]">
-                <a class="px-1" href="https://apps.apple.com/kz/app/halyk-life/id1546698463" target="_blank">
-                    <img src="https://cdn.homebank.kz/assets/icons/others/app-store.svg" width="120" height="auto">
-                </a>
-                <a class="px-1" href="https://play.google.com/store/apps/details?id=com.halyk.life.app&hl=ru"
-                   target="_blank">
-                    <img src="https://cdn.homebank.kz/assets/icons/others/google-play.svg" width="120"
-                         height="auto">
-                </a>
-            </div>
             <div class="bg-[#f7f7f7] fixed bottom-0 left-[50%] translate-x-[-50%] max-w-[500px] w-full px-4 pb-4">
                 <a v-if="'{{ .Status.Transaction.StatusName }}' === 'CHARGE'" href="{{ .ReceiptLink }}">
                     <button class="rounded-[14px] bg-[#2AA65C] w-full py-[12px] mb-2 mt-4">

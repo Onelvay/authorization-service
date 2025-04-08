@@ -145,15 +145,15 @@ func (c *Client) PayByTemplate(w http.ResponseWriter, requestSrc Request) (err e
 	switch requestSrc.Status.Transaction.StatusName {
 	case "NEW", "AUTH", "EXPIRED":
 		requestSrc.Status.Transaction.Status = "pending"
-		filenames = "./templates/success.html"
+		filenames = "./templates/status.html"
 	case "CHARGE":
-		filenames = "./templates/success.html"
+		filenames = "./templates/status.html"
 		requestSrc.Status.Transaction.Status = "success"
 	case "CANCEL", "CANCEL_OLD", "REFUND":
-		filenames = "./templates/success.html"
+		filenames = "./templates/status.html"
 		requestSrc.Status.Transaction.Status = "cancel"
 	case "REJECT", "FAILED", "3D":
-		filenames = "./templates/success.html"
+		filenames = "./templates/status.html"
 		requestSrc.Status.Transaction.Status = "failed"
 	case "":
 		filenames = "./templates/payment.html"
@@ -165,11 +165,11 @@ func (c *Client) PayByTemplate(w http.ResponseWriter, requestSrc Request) (err e
 		requestSrc.Token = token
 		requestSrc.PaymentJsLink = c.credential.JS
 
-		requestSrc.BackLink = "https://authorization-service-4b7m.onrender.com" + "/auth/" + requestSrc.ID + "/status"
+		requestSrc.BackLink = "https://authorization-service-4b7m.onrender.com" + "/auth/pay?id=" + requestSrc.ID
 
 	default:
 		requestSrc.Status.Transaction.Status = "failed"
-		filenames = "status.html"
+		filenames = "./templates/status.html"
 	}
 
 	requestSrc.Status.Transaction.Datetime = requestSrc.Status.Transaction.CreatedDate.Format(time.DateTime)

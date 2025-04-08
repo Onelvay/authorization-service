@@ -43,8 +43,15 @@ func (s *Service) Pay(ctx context.Context, w http.ResponseWriter, id string) (er
 		logger.Error("failed to get", zap.Error(err))
 		return
 	}
-
 	req := billing.ParseToEpayRequest(billingData)
+
+	paymentRes, err := s.epayClient.CheckStatus(*billingData.InvoiceID, billingData.TerminalID)
+	if err != nil {
+		logger.Error("failed to check invoice status", zap.Error(err))
+		return
+	}
+	req.Status = paymentRes
+
 	if err = s.epayClient.PayByTemplate(w, req); err != nil {
 		logger.Error("failed to pay by template", zap.Error(err))
 		return
