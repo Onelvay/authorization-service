@@ -158,3 +158,16 @@ func (r *Repository) GetCards(ctx context.Context, accID string) (dest []billing
 	err = r.db.SelectContext(ctx, &dest, query, args...)
 	return
 }
+
+func (r *Repository) DeleteCardByID(ctx context.Context, id string) error {
+	ctx, cancel := context.WithTimeout(ctx, 10*time.Second)
+	defer cancel()
+
+	query := `
+		DELETE FROM cards
+		WHERE id = $1;
+	`
+
+	_, err := r.db.ExecContext(ctx, query, id)
+	return err
+}

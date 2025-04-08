@@ -13,3 +13,12 @@ func (s *Service) GetCards(ctx context.Context, accId string) (cards []billing.C
 	}
 	return
 }
+
+func (s *Service) DeleteCard(ctx context.Context, cardId string) (err error) {
+	err = s.userRepository.DeleteCardByID(ctx, cardId)
+	if err != nil {
+		fmt.Println(err.Error)
+		return
+	}
+	return
+}
