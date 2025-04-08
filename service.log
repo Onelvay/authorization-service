@@ -1456,3 +1456,7 @@ account-service/pkg/server.(*Server).Run.func1
 2025-04-08T16:22:44.808+0500	INFO	app/app.go:88	Server started on http://localhost:2003/swagger/index.html
 2025-04-08T16:26:56.025+0500	INFO	app/app.go:88	Server started on http://localhost:2003/swagger/index.html
 2025-04-08T17:38:21.990+0500	INFO	app/app.go:88	Server started on http://localhost:2003/swagger/index.html
+2025-04-08T17:40:38.591+0500	INFO	app/app.go:88	Server started on http://localhost:2003/swagger/index.html
+2025-04-08T17:40:40.912+0500	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
+account-service/pkg/server.(*Server).Run.func1
+	C:/diploma/authorization-service/pkg/server/server.go:42
