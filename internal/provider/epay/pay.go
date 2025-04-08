@@ -145,15 +145,15 @@ func (c *Client) PayByTemplate(w http.ResponseWriter, requestSrc Request) (err e
 	switch requestSrc.Status.Transaction.StatusName {
 	case "NEW", "AUTH", "EXPIRED":
 		requestSrc.Status.Transaction.Status = "pending"
-		filenames = "success.html"
+		filenames = "./templates/success.html"
 	case "CHARGE":
-		filenames = "success.html"
+		filenames = "./templates/success.html"
 		requestSrc.Status.Transaction.Status = "success"
 	case "CANCEL", "CANCEL_OLD", "REFUND":
-		filenames = "success.html"
+		filenames = "./templates/success.html"
 		requestSrc.Status.Transaction.Status = "cancel"
 	case "REJECT", "FAILED", "3D":
-		filenames = "success.html"
+		filenames = "./templates/success.html"
 		requestSrc.Status.Transaction.Status = "failed"
 	case "":
 		filenames = "./templates/payment.html"
@@ -165,7 +165,7 @@ func (c *Client) PayByTemplate(w http.ResponseWriter, requestSrc Request) (err e
 		requestSrc.Token = token
 		requestSrc.PaymentJsLink = c.credential.JS
 
-		requestSrc.BackLink = c.configs.APP.Host + "/invoices/" + requestSrc.ID + "/pay"
+		requestSrc.BackLink = "https://authorization-service-4b7m.onrender.com" + "/auth/" + requestSrc.ID + "/status"
 
 	default:
 		requestSrc.Status.Transaction.Status = "failed"

@@ -6,6 +6,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"errors"
+	"io"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
@@ -31,6 +32,7 @@ func (h *Auth) Routes() chi.Router {
 	r.Post("/sign-in", h.signIn)
 
 	r.Get("/pay", h.pay)
+	r.Post("/callback", h.callback)
 	r.Post("/createPayment", h.createBilling)
 
 	return r
@@ -59,6 +61,26 @@ func (h *Auth) createBilling(w http.ResponseWriter, r *http.Request) {
 func (h *Auth) pay(w http.ResponseWriter, r *http.Request) {
 	id := r.URL.Query().Get("id")
 	err := h.authService.Pay(r.Context(), w, id)
+	switch {
+	case errors.Is(err, grant.ErrUserExist):
+		response.BadRequest(w, r, err, nil)
+	case errors.Is(err, nil):
+		response.OK(w, r, "")
+	default:
+		response.InternalServerError(w, r, err)
+	}
+	return
+}
+
+func (h *Auth) callback(w http.ResponseWriter, r *http.Request) {
+	id := r.URL.Query().Get("id")
+	body, err := io.ReadAll(r.Body)
+	if err != nil {
+		response.InternalServerError(w, r, err)
+		return
+	}
+
+	err = h.authService.Callback(r.Context(), id, body)
 	switch {
 	case errors.Is(err, grant.ErrUserExist):
 		response.BadRequest(w, r, err, nil)

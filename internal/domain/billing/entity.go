@@ -1,6 +1,9 @@
 package billing
 
-import "account-service/internal/provider/epay"
+import (
+	"account-service/internal/provider/epay"
+	"time"
+)
 
 type Entity struct {
 	ID              string  `db:"id" json:"id"`
@@ -23,6 +26,19 @@ type Entity struct {
 	FailurePostLink string  `db:"failure_post_link" json:"failurePostLink"`
 	Language        string  `db:"language" json:"language"`
 	CardSave        bool    `db:"card_save" json:"cardSave"`
+}
+
+type CardEntity struct {
+	ID         string    `json:"id"`
+	CardID     string    `json:"card_id"`
+	AccountID  string    `json:"account_id"`
+	TerminalID string    `json:"terminal_id"`
+	Type       string    `json:"type"`
+	Mask       string    `json:"mask"`
+	Issuer     string    `json:"issuer"`
+	IsDefault  bool      `json:"is_default"`
+	CreatedAt  time.Time `json:"created_at"`
+	UpdatedAt  time.Time `json:"updated_at"`
 }
 
 func ParseToEpayRequest(b Entity) epay.Request {
