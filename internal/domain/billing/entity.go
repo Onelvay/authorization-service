@@ -56,7 +56,7 @@ func ParseToEpayRequest(b Entity) epay.Request {
 		Email:         b.Email,
 		Phone:         b.Phone,
 		Language:      b.Language,
-		PostLink:      b.PostLink,
+		PostLink:      b.PostLink + b.ID,
 		CardSave:      true,
 	}
 }

@@ -19,7 +19,7 @@ func (s *Service) CreatePayment(ctx context.Context, req billing.Entity) (dest s
 		return
 	}
 	req.InvoiceID = &invoiceID
-	req.PostLink = "https://authorization-service-4b7m.onrender.com/auth/callback"
+	req.PostLink = "https://authorization-service-4b7m.onrender.com/auth/callback" + "?id="
 	req.Source = "epay"
 	req.Currency = "KZT"
 	req.TerminalID = "67e34d63-102f-4bd1-898e-370781d0074d"

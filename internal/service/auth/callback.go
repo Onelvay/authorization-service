@@ -5,9 +5,7 @@ import (
 	"account-service/internal/provider/epay"
 	"account-service/pkg/log"
 	"context"
-	"database/sql"
 	"encoding/json"
-	"errors"
 	"go.uber.org/zap"
 	"strings"
 )
@@ -17,9 +15,7 @@ func (s *Service) Callback(ctx context.Context, id string, body []byte) (err err
 
 	data, err := s.userRepository.GetBillingByID(ctx, id)
 	if err != nil {
-		if !errors.Is(err, sql.ErrNoRows) {
-			logger.Error("failed to get billing by id", zap.Error(err))
-		}
+		logger.Error("failed to get billing by id", zap.Error(err))
 		return
 	}
 
