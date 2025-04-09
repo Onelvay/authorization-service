@@ -144,7 +144,7 @@ func (c *Client) PayByTemplate(w http.ResponseWriter, requestSrc Request) (err e
 	filenames := ""
 	switch requestSrc.Status.Transaction.StatusName {
 	case "NEW", "AUTH", "EXPIRED":
-		requestSrc.Status.Transaction.Status = "pending"
+		requestSrc.Status.Transaction.Status = "success"
 		filenames = "./templates/status.html"
 	case "CHARGE":
 		filenames = "./templates/status.html"
