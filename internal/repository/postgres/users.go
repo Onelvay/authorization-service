@@ -19,6 +19,30 @@ func NewUserRepository(db *sqlx.DB) *Repository {
 	}
 }
 
+func (r *Repository) UpdateUser(ctx context.Context, user users.User) error {
+	query := `
+    UPDATE users 
+    SET 
+        email = $1, 
+        name = $2, 
+        phone = $3, 
+        birth_date = $4, 
+        gender = $5
+    WHERE id = $6;`
+
+	args := []interface{}{user.Email, user.Name, user.Phone, user.BirthDate, user.Gender, user.ID}
+
+	ctx, cancel := context.WithTimeout(ctx, 10*time.Second)
+	defer cancel()
+
+	err := r.db.QueryRowContext(ctx, query, args...).Scan(&user.CreatedAt, &user.UpdatedAt, &user.ID, &user.Email, &user.Name, &user.Password, &user.Phone, &user.BirthDate, &user.Gender)
+	if err != nil {
+		return err
+	}
+
+	return err
+}
+
 func (r *Repository) CreateUser(ctx context.Context, data users.User) (id string, err error) {
 	ctx, cancel := context.WithTimeout(ctx, 10*time.Second)
 	defer cancel()

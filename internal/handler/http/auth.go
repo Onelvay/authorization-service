@@ -3,6 +3,7 @@ package http
 import (
 	"account-service/internal/domain/billing"
 	"account-service/internal/domain/grant"
+	"account-service/internal/domain/users"
 	"database/sql"
 	"encoding/json"
 	"errors"
@@ -32,6 +33,7 @@ func (h *Auth) Routes() chi.Router {
 	r.Post("/sign-in", h.signIn)
 
 	r.Get("/getUser", h.getUser)
+	r.Post("/updateUser", h.updateUser)
 
 	r.Get("/pay", h.pay)
 	r.Post("/callback", h.callback)
@@ -166,6 +168,26 @@ func (h *Auth) signIn(w http.ResponseWriter, r *http.Request) {
 		response.BadRequest(w, r, errors.New("Не найден пользователь"), nil)
 	case errors.Is(err, nil):
 		response.OK(w, r, accessToken)
+		return
+	default:
+		response.InternalServerError(w, r, err)
+		return
+	}
+	return
+}
+
+func (h *Auth) updateUser(w http.ResponseWriter, r *http.Request) {
+	req := users.User{}
+	err := json.NewDecoder(r.Body).Decode(&req)
+	if err != nil {
+		response.BadRequest(w, r, err, nil)
+		return
+	}
+
+	err = h.authService.UpdateUser(r.Context(), req)
+	switch {
+	case errors.Is(err, nil), errors.Is(err, sql.ErrNoRows):
+		response.OK(w, r, response.Object{Success: true, Data: req})
 		return
 	default:
 		response.InternalServerError(w, r, err)

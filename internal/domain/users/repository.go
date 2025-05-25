@@ -11,6 +11,8 @@ type Repository interface {
 	GetUserByAny(ctx context.Context, login string) (dest User, err error)
 	GetUserByEmailOrLogin(ctx context.Context, email string, login string) (dest User, err error)
 
+	UpdateUser(ctx context.Context, user User) error
+
 	CreateBilling(ctx context.Context, data billing.Entity) (id string, err error)
 	GetBillingByID(ctx context.Context, id string) (billing.Entity, error)
 	CreateCard(ctx context.Context, data billing.CardEntity) (id string, err error)
