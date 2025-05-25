@@ -17,6 +17,11 @@ type User struct {
 	UpdatedAt time.Time `db:"updated_at"`
 }
 
+type Subs struct {
+	Name      string `db:"name"`
+	AccountId string `db:"account_id"`
+}
+
 func ParseFromAuth(req grant.Request) User {
 	return User{
 		Name:     req.Login,

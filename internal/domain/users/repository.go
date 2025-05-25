@@ -13,6 +13,7 @@ type Repository interface {
 
 	UpdateUser(ctx context.Context, user User) error
 	CreateSub(ctx context.Context, accId string, name string) (id string, err error)
+	GetSubs(ctx context.Context, userId string) (dest Subs, err error)
 
 	CreateBilling(ctx context.Context, data billing.Entity) (id string, err error)
 	GetBillingByID(ctx context.Context, id string) (billing.Entity, error)

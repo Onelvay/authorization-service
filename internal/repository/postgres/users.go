@@ -73,6 +73,19 @@ func (r *Repository) CreateSub(ctx context.Context, accId string, name string) (
 	return
 }
 
+func (r *Repository) GetSubs(ctx context.Context, userId string) (dest users.Subs, err error) {
+	ctx, cancel := context.WithTimeout(ctx, 10*time.Second)
+	defer cancel()
+
+	query := `
+			SELECT account_id,name
+				FROM subs WHERE account_id = $1;`
+	args := []interface{}{userId}
+
+	err = r.db.SelectContext(ctx, &dest, query, args...)
+	return
+}
+
 func (r *Repository) GetUsers(ctx context.Context) (dest []users.User, err error) {
 	ctx, cancel := context.WithTimeout(ctx, 10*time.Second)
 	defer cancel()
