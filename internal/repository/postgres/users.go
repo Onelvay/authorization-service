@@ -39,7 +39,7 @@ func (r *Repository) GetUsers(ctx context.Context) (dest []users.User, err error
 	defer cancel()
 
 	query := `
-			SELECT created_at, updated_at, id, email, name, password
+			SELECT created_at, updated_at, id, email, name, password, phone,birth_date,gender
 				FROM users`
 	args := []interface{}{}
 
@@ -49,7 +49,7 @@ func (r *Repository) GetUsers(ctx context.Context) (dest []users.User, err error
 
 func (r *Repository) GetUserByEmailOrLogin(ctx context.Context, email string, login string) (dest users.User, err error) {
 	query := `
-			SELECT created_at, updated_at, id, email, name, password
+			SELECT created_at, updated_at, id, email, name, password, phone,birth_date,gender
 			FROM users
 			WHERE email = $1 OR name = $2;`
 
@@ -61,7 +61,7 @@ func (r *Repository) GetUserByEmailOrLogin(ctx context.Context, email string, lo
 
 func (r *Repository) GetUserByAny(ctx context.Context, login string) (dest users.User, err error) {
 	query := `
-			SELECT created_at, updated_at, id, email, name, password
+			SELECT created_at, updated_at, id, email, name, password, phone,birth_date,gender
 			FROM users
 			WHERE email = $1 OR name = $1;`
 

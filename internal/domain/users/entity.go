@@ -10,6 +10,9 @@ type User struct {
 	Email     string    `db:"email"`
 	Name      string    `db:"name"`
 	Password  string    `db:"password"`
+	Phone     *string   `db:"phone"`
+	BirthDate *string   `db:"birth_date"`
+	Gender    *string   `db:"gender"`
 	CreatedAt time.Time `db:"created_at"`
 	UpdatedAt time.Time `db:"updated_at"`
 }

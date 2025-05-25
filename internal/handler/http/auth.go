@@ -31,6 +31,8 @@ func (h *Auth) Routes() chi.Router {
 	r.Post("/sign-up", h.signUp)
 	r.Post("/sign-in", h.signIn)
 
+	r.Get("/getUser", h.getUser)
+
 	r.Get("/pay", h.pay)
 	r.Post("/callback", h.callback)
 	r.Post("/createPayment", h.createBilling)
@@ -66,6 +68,18 @@ func (h *Auth) deleteCards(w http.ResponseWriter, r *http.Request) {
 	switch {
 	case errors.Is(err, nil):
 		response.OK(w, r, response.Object{Success: true, Data: id})
+	default:
+		response.InternalServerError(w, r, err)
+	}
+	return
+}
+
+func (h *Auth) getUser(w http.ResponseWriter, r *http.Request) {
+	id := r.URL.Query().Get("login")
+	cards, err := h.authService.GetUser(r.Context(), id)
+	switch {
+	case errors.Is(err, nil):
+		response.OK(w, r, cards)
 	default:
 		response.InternalServerError(w, r, err)
 	}
