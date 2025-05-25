@@ -82,7 +82,7 @@ func (r *Repository) GetSubs(ctx context.Context, userId string) (dest users.Sub
 				FROM subs WHERE account_id = $1;`
 	args := []interface{}{userId}
 
-	err = r.db.SelectContext(ctx, &dest, query, args...)
+	err = r.db.GetContext(ctx, &dest, query, args...)
 	return
 }
 
