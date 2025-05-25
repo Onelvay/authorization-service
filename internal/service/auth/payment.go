@@ -24,6 +24,8 @@ func (s *Service) CreatePayment(ctx context.Context, req billing.Entity) (dest s
 	req.Currency = "KZT"
 	req.TerminalID = "67e34d63-102f-4bd1-898e-370781d0074d"
 	req.Language = "ru"
+	req.CardSave = true
+	req.BackLink = "http://localhost:5173/my-appointments"
 
 	if dest, err = s.userRepository.CreateBilling(ctx, req); err != nil {
 		logger.Error("failed to create billing", zap.Error(err))

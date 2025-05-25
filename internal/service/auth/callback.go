@@ -47,18 +47,34 @@ func (s *Service) callbackByEpay(ctx context.Context, billingData billing.Entity
 	//если был передан параметр cardSave = true, тогда к account id мы привязываем card id
 	if strings.EqualFold(epayCallback.Transaction.StatusName, "AUTH") || strings.EqualFold(epayCallback.Transaction.StatusName, "CHARGE") {
 		if billingData.CardSave {
-			_, err = s.userRepository.CreateCard(ctx, billing.CardEntity{
-				CardID:     callback.CardID,
-				AccountID:  callback.AccountID,
-				TerminalID: callback.TerminalID,
-				Type:       callback.CardType,
-				Mask:       callback.CardMask,
-				Issuer:     callback.CardIssuer,
-				IsDefault:  false,
-			})
+			var cards []billing.CardEntity
+			cards, err = s.userRepository.GetCards(ctx, callback.AccountID)
 			if err != nil {
-				logger.Error("failed to save card", zap.Error(err), zap.Any("billing struct", billingData))
+				logger.Error("failed to get cards", zap.Error(err), zap.Any("account id", callback.AccountID))
 				return
+			}
+
+			found := false
+			for _, card := range cards {
+				if card.Mask == callback.CardMask {
+					found = true
+				}
+			}
+
+			if !found {
+				_, err = s.userRepository.CreateCard(ctx, billing.CardEntity{
+					CardID:     callback.CardID,
+					AccountID:  callback.AccountID,
+					TerminalID: callback.TerminalID,
+					Type:       callback.CardType,
+					Mask:       callback.CardMask,
+					Issuer:     callback.CardIssuer,
+					IsDefault:  false,
+				})
+				if err != nil {
+					logger.Error("failed to save card", zap.Error(err), zap.Any("billing struct", billingData))
+					return
+				}
 			}
 		}
 	}
