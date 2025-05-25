@@ -47,6 +47,16 @@ func (s *Service) callbackByEpay(ctx context.Context, billingData billing.Entity
 	//если был передан параметр cardSave = true, тогда к account id мы привязываем card id
 	if strings.EqualFold(epayCallback.Transaction.StatusName, "AUTH") || strings.EqualFold(epayCallback.Transaction.StatusName, "CHARGE") {
 		if billingData.CardSave {
+			if strings.Contains(billingData.Description, "Premium") ||
+				strings.Contains(billingData.Description, "Standard") ||
+				strings.Contains(billingData.Description, "Basic") {
+				_, err = s.userRepository.CreateSub(ctx, billingData.AccountID, billingData.Description)
+				if err != nil {
+					logger.Error("failed to save ", zap.Error(err))
+					return
+				}
+			}
+
 			var cards []billing.CardEntity
 			cards, err = s.userRepository.GetCards(ctx, callback.AccountID)
 			if err != nil {

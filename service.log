@@ -2208,3 +2208,4 @@ net/http.(*conn).serve
 2025-05-25T16:56:59.336+0500	ERROR	server/server.go:42	ERR_SERVE_HTTP	{"error": "http: Server closed"}
 account-service/pkg/server.(*Server).Run.func1
 	C:/diploma/authorization-service/pkg/server/server.go:42
+2025-05-25T17:19:25.158+0500	INFO	app/app.go:88	Server started on http://localhost:2003/swagger/index.html
